@@ -1,7 +1,7 @@
 <template>
   <div class="py-2">
     <div class="flex gap-8 justify-between items-center">
-      <div class="title font-semibold text-xl">Popular Movies</div>
+      <div class="title font-semibold text-xl">Now Playing</div>
       <div class="flex gap-4">
         <button
           @click="onPrev"
@@ -22,13 +22,7 @@
       ref="listContainer"
       class="py-8 flex overflow-hidden gap-4"
     >
-      <div
-        id="list-items"
-        ref="listItems"
-        class="item"
-        v-for="item in data"
-        :key="item.id"
-      >
+      <div class="item" v-for="item in data" :key="item.id">
         <movies-card
           class="w-64"
           :id="item.id"
@@ -45,7 +39,7 @@
 <script>
 import MoviesCard from "@/components/Movies/MoviesCard.vue";
 export default {
-  name: "ListPopularMovies",
+  name: "ListNowPlayingMovies",
   components: {
     MoviesCard,
   },
@@ -54,9 +48,6 @@ export default {
       type: Array,
       required: true,
     },
-  },
-  data() {
-    return {};
   },
   methods: {
     onNext() {
